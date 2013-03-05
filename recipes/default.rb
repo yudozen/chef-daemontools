@@ -56,7 +56,7 @@ end
 
 template "/service/redis/run" do
   source "run"
-  mode 0644
+  mode 0755
   owner "root"
   group "root"
 end
