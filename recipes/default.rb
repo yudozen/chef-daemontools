@@ -27,3 +27,22 @@ bash "install_program" do
 	EOH
 	action :nothing
 end
+
+# for jidou kidou
+template "/etc/init/svscan.conf" do
+	source "svscan.erb"
+	mode 0644
+	owner "root"
+	group "root"
+	notifies :run, "bash[start_svscan]", :immediately
+end
+
+bash "start_svscan" do
+	user "root"
+	code <<-EOH
+		initctl reload-configuration
+		initctl start svscan
+	EOH
+	action :nothing	
+end
+
