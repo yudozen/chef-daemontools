@@ -11,6 +11,10 @@ remote_file "/tmp/daemontools-0.76.tar.gz" do
 	notifies :run, "bash[install_program]", :immediately
 end
 
+package "patch" do
+	action :install
+end
+
 bash "install_program" do
 	user "root"
 	cwd "/tmp"
