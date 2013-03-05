@@ -46,3 +46,11 @@ bash "start_svscan" do
 	action :nothing	
 end
 
+# for redis
+template "/service/redis/run" do
+  source "run"
+  mode 0644
+  owner "root"
+  group "root"
+end
+
